@@ -1,0 +1,57 @@
+{
+  "novo-schema":
+  {
+    "databases": [
+      {
+        "name": "database_1",
+        "tables": [
+          {
+            "name": "table_1",
+            "pk": "id",
+            "columns": [
+              {
+                "name": "id",
+                "sql-type": "bigint",
+                "null": "no"
+              },
+              {
+                "name": "test_column_1",
+                "sql-type": "varchar(500)",
+                "null": "yes"
+              },
+              {
+                "name": "test_column_2",
+                "sql-type": "varchar(200)",
+                "null": "no"
+              }
+            ]
+          },
+          {
+            "name": "table_2",
+            "pk": "id",
+            "columns": [
+              {
+                "name": "id",
+                "sql-type": "bigint",
+                "null": "no"
+              },
+              {
+                "name": "test_column_1",
+                "sql-type": "varchar(500)",
+                "null": "yes"
+              },
+              {
+                "name": "test_column_2",
+                "sql-type": "varchar(200)",
+                "null": "no"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "database_2"
+      }
+    ]
+  }
+}

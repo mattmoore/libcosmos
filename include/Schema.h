@@ -2,12 +2,18 @@
 #define SCHEMA_H
 
 #include <string>
-#include "DB.h"
+#include <vector>
+#include "Table.h"
 
 namespace Novo {
   class Schema {
+  private:
+    std::vector<Novo::Table> _tables;
   public:
     Schema();
+    void AddTable(std::string name);
+    void RemoveTable(std::string name);
+    std::string GetSQL();
   };
 }
 

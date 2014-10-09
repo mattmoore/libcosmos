@@ -11,9 +11,10 @@ namespace Novo {
     std::vector<Novo::Table> _tables;
   public:
     Schema();
-    void AddTable(std::string name);
+    void AddTable(Novo::Table table);
     void RemoveTable(std::string name);
     std::string GetSQL();
+    enum class DataType;
   };
 }
 

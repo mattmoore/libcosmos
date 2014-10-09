@@ -5,6 +5,18 @@ namespace Novo {
 
   }
 
+  void Schema::AddDatabase(Novo::Database database) {
+    _databases.push_back(database);
+  }
+
+  void Schema::RemoveDatabase(std::string name) {
+    for (uint i = 0; i < _databases.size(); ++i) {
+      if (_databases[i].GetName() == name) {
+        _databases.erase(_databases.begin() + i);
+      }
+    }
+  }
+
   void Schema::AddTable(Novo::Table table) {
     _tables.push_back(table);
   }

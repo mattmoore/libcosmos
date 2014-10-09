@@ -35,3 +35,4 @@ namespace Novo {
     return sql;
   }
 }
+

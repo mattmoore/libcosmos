@@ -13,10 +13,13 @@ namespace Novo {
   public:
     Table(std::string name);
     std::string GetName();
+
     void AddColumn(Novo::Column);
     void RemoveColumn(std::string name);
+    
     std::string GetSQL();
   };
 }
 
 #endif
+

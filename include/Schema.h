@@ -7,13 +7,19 @@
 #include "Table.h"
 
 namespace Novo {
+  enum class DatabaseType {
+    POSTGRESQL,
+    MSSQL
+  };
+
   class Schema {
   private:
+    Novo::DatabaseType _databaseType;
     std::vector<Novo::Database> _databases;
     std::vector<Novo::Table> _tables;
     
   public:
-    Schema();
+    Schema(Novo::DatabaseType dbType);
 
     void AddDatabase(Novo::Database database);
     void RemoveDatabase(std::string name);
@@ -23,8 +29,10 @@ namespace Novo {
 
     std::string GetSQL();
 
+    enum class DatabaseType;
     enum class DataType;
   };
 }
 
 #endif
+

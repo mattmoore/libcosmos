@@ -4,7 +4,10 @@
 #include <string>
 
 namespace Novo {
-  enum class ColumnType {INT, VARCHAR};
+  enum class ColumnType {
+    INT,
+    VARCHAR
+  };
 
   class Column {
   private:

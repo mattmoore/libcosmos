@@ -1,8 +1,8 @@
 #include "Schema.h"
 
 namespace Novo {
-  Schema::Schema() {
-
+  Schema::Schema(Novo::DatabaseType dbType) {
+    _databaseType = dbType;
   }
 
   void Schema::AddDatabase(Novo::Database database) {
@@ -37,3 +37,4 @@ namespace Novo {
     return sql;
   }
 }
+

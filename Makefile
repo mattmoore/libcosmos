@@ -7,7 +7,7 @@ BUILD			:= build
 BIN				:= bin
 TARGET		:= bin/novo
 
-LINK_OBJS := $(BUILD)/main.o $(BUILD)/Schema.o $(BUILD)/Database.o $(BUILD)/Table.o $(BUILD)/Column.o
+LINK_OBJS := $(BUILD)/main.o $(BUILD)/Schema.o $(BUILD)/Database.o $(BUILD)/Table.o $(BUILD)/ForeignKey.o $(BUILD)/Column.o
 
 $(TARGET): $(BUILD)/main.o
 	mkdir -p $(BIN)
@@ -25,9 +25,13 @@ $(BUILD)/Database.o: $(INC)/Database.h $(SRC)/Database.cpp $(BUILD)/Table.o
 	mkdir -p $(BUILD)
 	$(CC) $(CFLAGS) -c -o $(BUILD)/Database.o -I$(INC) $(SRC)/Database.cpp
 
-$(BUILD)/Table.o: $(INC)/Table.h $(SRC)/Table.cpp $(BUILD)/Column.o
+$(BUILD)/Table.o: $(INC)/Table.h $(SRC)/Table.cpp $(BUILD)/ForeignKey.o $(BUILD)/Column.o
 	mkdir -p $(BUILD)
 	$(CC) $(CFLAGS) -c -o $(BUILD)/Table.o -I$(INC) $(SRC)/Table.cpp
+
+$(BUILD)/ForeignKey.o: $(INC)/ForeignKey.h $(SRC)/ForeignKey.cpp
+	mkdir -p $(BUILD)
+	$(CC) $(CFLAGS) -c -o $(BUILD)/ForeignKey.o -I$(INC) $(SRC)/ForeignKey.cpp
 
 $(BUILD)/Column.o: $(INC)/Column.h $(SRC)/Column.cpp
 	mkdir -p $(BUILD)

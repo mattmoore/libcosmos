@@ -1,6 +1,7 @@
 #include "Column.h"
 
 namespace Novo {
+
   Column::Column(std::string name, Novo::ColumnType type) {
     _name = name;
     _type = type;
@@ -41,4 +42,5 @@ namespace Novo {
     std::string sql;
     return sql;
   }
+  
 }

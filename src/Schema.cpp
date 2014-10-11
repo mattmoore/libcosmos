@@ -31,9 +31,23 @@ namespace Novo {
 
   std::string Schema::GetSQL() {
     std::string sql;
+    std::string fkey_sql;
+
     for (Novo::Table &table : _tables) {
       sql += table.GetSQL();
+
+      for (Novo::ForeignKey f_key : table.GetForeignKeys()) {
+        fkey_sql += "ALTER TABLE " + table.GetName();
+        fkey_sql += " ADD CONSTRAINT " + f_key.GetName();
+        fkey_sql += " FOREIGN KEY (" + f_key.GetSourceColumn() + ")";
+        fkey_sql += " REFERENCES " + f_key.GetTargetTable() + "(" + f_key.GetTargetColumn() + ")";
+        fkey_sql += ";\n";
+      }
+
     }
+
+    sql += fkey_sql;
+    
     return sql;
   }
 }

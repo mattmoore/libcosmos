@@ -21,9 +21,27 @@ namespace Novo {
     }
   }
 
+  void Table::AddForeignKey(Novo::ForeignKey key) {
+    _f_keys.push_back(key);
+  }
+
+  void Table::RemoveForeignKey(std::string name) {
+    for (uint i = 0; i < _f_keys.size(); ++i) {
+      if (_f_keys[i].GetName() == name) {
+        _f_keys.erase(_f_keys.begin() + i);
+      }
+    }
+  }
+
+  std::vector<Novo::ForeignKey> Table::GetForeignKeys() {
+    return _f_keys;
+  }
+
   std::string Table::GetSQL() {
     std::string sql;
+
     sql = "CREATE TABLE " + _name + " (" + "\n";
+
     for (Novo::Column &column : _columns) {
       sql += "  " + column.GetName() + " " + column.TypeToString(column.GetType());
       if (column.GetSize() > 0) {
@@ -31,7 +49,9 @@ namespace Novo {
       }
       sql += ",\n";
     }
+
     sql += ");\n";
+
     return sql;
   }
 }

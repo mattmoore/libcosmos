@@ -5,7 +5,7 @@ namespace Novo {
     _databaseType = dbType;
   }
 
-  void Schema::AddDatabase(Novo::Database database) {
+  void Schema::AddDatabase(Novo::DBObjects::Database database) {
     _databases.push_back(database);
   }
 
@@ -17,7 +17,7 @@ namespace Novo {
     }
   }
 
-  void Schema::AddTable(Novo::Table table) {
+  void Schema::AddTable(Novo::DBObjects::Table table) {
     _tables.push_back(table);
   }
 
@@ -33,10 +33,10 @@ namespace Novo {
     std::string sql;
     std::string fkey_sql;
 
-    for (Novo::Table &table : _tables) {
+    for (Novo::DBObjects::Table &table : _tables) {
       sql += table.GetSQL();
 
-      for (Novo::ForeignKey f_key : table.GetForeignKeys()) {
+      for (Novo::DBObjects::ForeignKey f_key : table.GetForeignKeys()) {
         fkey_sql += "ALTER TABLE " + table.GetName();
         fkey_sql += " ADD CONSTRAINT " + f_key.GetName();
         fkey_sql += " FOREIGN KEY (" + f_key.GetSourceColumn() + ")";

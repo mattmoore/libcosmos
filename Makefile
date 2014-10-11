@@ -21,25 +21,25 @@ $(BUILD)/Schema.o: $(INC)/Schema.h $(SRC)/Schema.cpp $(BUILD)/Database.o
 	mkdir -p $(BUILD)
 	$(CC) $(CFLAGS) -c -o $(BUILD)/Schema.o -I$(INC) $(SRC)/Schema.cpp
 
-$(BUILD)/Database.o: $(INC)/Database.h $(SRC)/Database.cpp $(BUILD)/Table.o
+$(BUILD)/Database.o: $(INC)/DBObjects/Database.h $(SRC)/DBObjects/Database.cpp $(BUILD)/Table.o
 	mkdir -p $(BUILD)
-	$(CC) $(CFLAGS) -c -o $(BUILD)/Database.o -I$(INC) $(SRC)/Database.cpp
+	$(CC) $(CFLAGS) -c -o $(BUILD)/Database.o -I$(INC) $(SRC)/DBObjects/Database.cpp
 
-$(BUILD)/Table.o: $(INC)/Table.h $(SRC)/Table.cpp $(BUILD)/PrimaryKey.o $(BUILD)/ForeignKey.o $(BUILD)/Column.o
+$(BUILD)/Table.o: $(INC)/DBObjects/Table.h $(SRC)/DBObjects/Table.cpp $(BUILD)/PrimaryKey.o $(BUILD)/ForeignKey.o $(BUILD)/Column.o
 	mkdir -p $(BUILD)
-	$(CC) $(CFLAGS) -c -o $(BUILD)/Table.o -I$(INC) $(SRC)/Table.cpp
+	$(CC) $(CFLAGS) -c -o $(BUILD)/Table.o -I$(INC) $(SRC)/DBObjects/Table.cpp
 
-$(BUILD)/ForeignKey.o: $(INC)/ForeignKey.h $(SRC)/ForeignKey.cpp
+$(BUILD)/ForeignKey.o: $(INC)/DBObjects/ForeignKey.h $(SRC)/DBObjects/ForeignKey.cpp
 	mkdir -p $(BUILD)
-	$(CC) $(CFLAGS) -c -o $(BUILD)/ForeignKey.o -I$(INC) $(SRC)/ForeignKey.cpp
+	$(CC) $(CFLAGS) -c -o $(BUILD)/ForeignKey.o -I$(INC) $(SRC)/DBObjects/ForeignKey.cpp
 
-$(BUILD)/PrimaryKey.o: $(INC)/PrimaryKey.h $(SRC)/PrimaryKey.cpp
+$(BUILD)/PrimaryKey.o: $(INC)/DBObjects/PrimaryKey.h $(SRC)/DBObjects/PrimaryKey.cpp
 	mkdir -p $(BUILD)
-	$(CC) $(CFLAGS) -c -o $(BUILD)/PrimaryKey.o -I$(INC) $(SRC)/PrimaryKey.cpp
+	$(CC) $(CFLAGS) -c -o $(BUILD)/PrimaryKey.o -I$(INC) $(SRC)/DBObjects/PrimaryKey.cpp
 
-$(BUILD)/Column.o: $(INC)/Column.h $(SRC)/Column.cpp
+$(BUILD)/Column.o: $(INC)/DBObjects/Column.h $(SRC)/DBObjects/Column.cpp
 	mkdir -p $(BUILD)
-	$(CC) $(CFLAGS) -c -o $(BUILD)/Column.o -I$(INC) $(SRC)/Column.cpp
+	$(CC) $(CFLAGS) -c -o $(BUILD)/Column.o -I$(INC) $(SRC)/DBObjects/Column.cpp
 
 # $(BUILD)/DB.o: $(INC)/DB.h $(SRC)/DB.cpp
 # 	mkdir -p $(BUILD)

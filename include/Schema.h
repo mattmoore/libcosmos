@@ -3,8 +3,8 @@
 
 #include <string>
 #include <vector>
-#include "Database.h"
-#include "Table.h"
+#include "DBObjects/Database.h"
+#include "DBObjects/Table.h"
 
 namespace Novo {
   enum class DatabaseType {
@@ -15,16 +15,16 @@ namespace Novo {
   class Schema {
   private:
     Novo::DatabaseType _databaseType;
-    std::vector<Novo::Database> _databases;
-    std::vector<Novo::Table> _tables;
+    std::vector<Novo::DBObjects::Database> _databases;
+    std::vector<Novo::DBObjects::Table> _tables;
     
   public:
     Schema(Novo::DatabaseType dbType);
 
-    void AddDatabase(Novo::Database database);
+    void AddDatabase(Novo::DBObjects::Database database);
     void RemoveDatabase(std::string name);
 
-    void AddTable(Novo::Table table);
+    void AddTable(Novo::DBObjects::Table table);
     void RemoveTable(std::string name);
 
     std::string GetSQL();

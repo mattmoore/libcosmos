@@ -3,7 +3,7 @@
 namespace Novo {
 
   ForeignKey::ForeignKey(std::string name) {
-
+    _name = name;
   }
 
   std::string ForeignKey::GetName() {

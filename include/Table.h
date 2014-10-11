@@ -13,11 +13,14 @@ namespace Novo {
   private:
     std::string _name;
     std::vector<Novo::Column> _columns;
+    std::string _pk;
     std::vector<Novo::ForeignKey> _f_keys;
 
   public:
     Table(std::string name);
     std::string GetName();
+
+    void SetPK(std::string name);
 
     void AddColumn(Novo::Column);
     void RemoveColumn(std::string name);

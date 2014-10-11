@@ -9,6 +9,10 @@ namespace Novo {
     return _name;
   }
 
+  void Table::SetPK(std::string name) {
+    _pk = name;
+  }
+
   void Table::AddColumn(Novo::Column column) {
     _columns.push_back(column);
   }
@@ -46,6 +50,9 @@ namespace Novo {
       sql += "  " + column.GetName() + " " + column.TypeToString(column.GetType());
       if (column.GetSize() > 0) {
         sql += "(" + std::to_string(column.GetSize()) + ")";
+      }
+      if (column.GetName() == _pk) {
+        sql += " PRIMARY KEY";
       }
       sql += ",\n";
     }

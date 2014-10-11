@@ -10,6 +10,7 @@ int main(int argc, char *argv[]) {
   table1.AddColumn(Novo::Column("col1", Novo::ColumnType::INT));
   table1.AddColumn(Novo::Column("col2", Novo::ColumnType::INT));
   table1.AddColumn(Novo::Column("col3", Novo::ColumnType::VARCHAR, 255));
+  table1.SetPK("col1");
   Novo::ForeignKey fk1("fk_table1_col3_table2_col1");
   fk1.SetSourceColumn("col2");
   fk1.SetTargetTable("table2");

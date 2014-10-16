@@ -12,9 +12,9 @@ namespace Novo {
 
     class Column {
     private:
-      std::string _name;
-      Novo::DBObjects::ColumnType _type;
-      uint _size;
+      std::string name;
+      Novo::DBObjects::ColumnType type;
+      uint size;
     public:
       Column(std::string name, Novo::DBObjects::ColumnType type);
       Column(std::string name, Novo::DBObjects::ColumnType type, uint size);

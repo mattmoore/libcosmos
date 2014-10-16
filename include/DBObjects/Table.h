@@ -12,10 +12,10 @@ namespace Novo {
     class Table {
 
     private:
-      std::string _name;
-      std::vector<Novo::DBObjects::Column> _columns;
-      std::string _pk;
-      std::vector<Novo::DBObjects::ForeignKey> _f_keys;
+      std::string name;
+      std::vector<Novo::DBObjects::Column> columns;
+      std::string pk;
+      std::vector<Novo::DBObjects::ForeignKey> f_keys;
 
     public:
       Table(std::string name);

@@ -7,10 +7,10 @@ namespace Novo {
   namespace DBObjects {
     class ForeignKey {
     private:
-      std::string _name;
-      std::string _source_column;
-      std::string _target_table;
-      std::string _target_column;
+      std::string name;
+      std::string source_column;
+      std::string target_table;
+      std::string target_column;
 
     public:
       ForeignKey(std::string name);

@@ -2,29 +2,29 @@
 
 namespace Novo {
   Schema::Schema(Novo::DatabaseType dbType) {
-    _databaseType = dbType;
+    this->databaseType = dbType;
   }
 
   void Schema::AddDatabase(Novo::DBObjects::Database database) {
-    _databases.push_back(database);
+    this->databases.push_back(database);
   }
 
   void Schema::RemoveDatabase(std::string name) {
-    for (uint i = 0; i < _databases.size(); ++i) {
-      if (_databases[i].GetName() == name) {
-        _databases.erase(_databases.begin() + i);
+    for (uint i = 0; i < this->databases.size(); ++i) {
+      if (this->databases[i].GetName() == name) {
+        this->databases.erase(this->databases.begin() + i);
       }
     }
   }
 
   void Schema::AddTable(Novo::DBObjects::Table table) {
-    _tables.push_back(table);
+    this->tables.push_back(table);
   }
 
   void Schema::RemoveTable(std::string name) {
-    for (uint i = 0; i < _tables.size(); ++i) {
-      if (_tables[i].GetName() == name) {
-        _tables.erase(_tables.begin() + i);
+    for (uint i = 0; i < this->tables.size(); ++i) {
+      if (this->tables[i].GetName() == name) {
+        this->tables.erase(this->tables.begin() + i);
       }
     }
   }
@@ -33,7 +33,7 @@ namespace Novo {
     std::string sql;
     std::string fkey_sql;
 
-    for (Novo::DBObjects::Table &table : _tables) {
+    for (Novo::DBObjects::Table &table : this->tables) {
       sql += table.GetSQL();
 
       for (Novo::DBObjects::ForeignKey f_key : table.GetForeignKeys()) {

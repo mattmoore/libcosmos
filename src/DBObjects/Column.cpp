@@ -4,27 +4,27 @@ namespace Novo {
   namespace DBObjects {
 
     Column::Column(std::string name, Novo::DBObjects::ColumnType type) {
-      _name = name;
-      _type = type;
-      _size = 0;
+      this->name = name;
+      this->type = type;
+      this->size = 0;
     }
 
     Column::Column(std::string name, Novo::DBObjects::ColumnType type, uint size) {
-      _name = name;
-      _type = type;
-      _size = size;
+      this->name = name;
+      this->type = type;
+      this->size = size;
     }
 
     std::string Column::GetName() {
-      return _name;
+      return this->name;
     }
 
     Novo::DBObjects::ColumnType Column::GetType() {
-      return _type;
+      return this->type;
     }
 
     uint Column::GetSize() {
-      return _size;
+      return this->size;
     }
 
     std::string Column::TypeToString(Novo::DBObjects::ColumnType type) {

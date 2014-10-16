@@ -3,21 +3,21 @@
 namespace Novo {
   namespace DBObjects {
     Database::Database(std::string name) {
-      _name = name;
+      this->name = name;
     }
 
     std::string Database::GetName() {
-      return _name;
+      return this->name;
     }
 
     void Database::AddTable(Novo::DBObjects::Table table) {
-      _tables.push_back(table);
+      this->tables.push_back(table);
     }
 
     void Database::RemoveTable(std::string name) {
-      for (uint i = 0; i < _tables.size(); ++i) {
-        if (_tables[i].GetName() == name) {
-          _tables.erase(_tables.begin() + i);
+      for (uint i = 0; i < this->tables.size(); ++i) {
+        if (this->tables[i].GetName() == name) {
+          this->tables.erase(this->tables.begin() + i);
         }
       }
     }

@@ -7,7 +7,7 @@ namespace Novo {
   namespace DBObjects {
     class PrimaryKey {
     private:
-      std::string _name;
+      std::string name;
 
     public:
       PrimaryKey(std::string name);

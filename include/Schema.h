@@ -14,9 +14,9 @@ namespace Novo {
 
   class Schema {
   private:
-    Novo::DatabaseType _databaseType;
-    std::vector<Novo::DBObjects::Database> _databases;
-    std::vector<Novo::DBObjects::Table> _tables;
+    Novo::DatabaseType databaseType;
+    std::vector<Novo::DBObjects::Database> databases;
+    std::vector<Novo::DBObjects::Table> tables;
     
   public:
     Schema(Novo::DatabaseType dbType);

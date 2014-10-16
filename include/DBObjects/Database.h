@@ -7,8 +7,8 @@ namespace Novo {
   namespace DBObjects {
     class Database {
     private:
-      std::string _name;
-      std::vector<Novo::DBObjects::Table> _tables;
+      std::string name;
+      std::vector<Novo::DBObjects::Table> tables;
     public:
       Database(std::string name);
       std::string GetName();

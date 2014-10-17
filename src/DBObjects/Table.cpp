@@ -47,6 +47,7 @@ namespace Novo {
 
       sql = "CREATE TABLE " + this->name + " (" + "\n";
 
+      uint col_index = 0;
       for (Novo::DBObjects::Column &column : this->columns) {
         sql += "  " + column.GetName() + " " + column.TypeToString(column.GetType());
         if (column.GetSize() > 0) {
@@ -55,7 +56,11 @@ namespace Novo {
         if (column.GetName() == this->pk) {
           sql += " PRIMARY KEY";
         }
-        sql += ",\n";
+        if (col_index < this->columns.size() - 1) {
+          sql += ",";
+        }
+        sql += "\n";
+        ++col_index;
       }
 
       sql += ");\n";

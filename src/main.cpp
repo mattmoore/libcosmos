@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
   table1.AddColumn(Novo::DBObjects::Column("col2", Novo::DBObjects::ColumnType::INT));
   table1.AddColumn(Novo::DBObjects::Column("col3", Novo::DBObjects::ColumnType::VARCHAR, 255));
   table1.SetPK("col1");
-  Novo::DBObjects::ForeignKey fk1("fk_table1_col3_table2_col1");
+  Novo::DBObjects::ForeignKey fk1("fk__col3__table2__col1");
   fk1.SetSourceColumn("col2");
   fk1.SetTargetTable("table2");
   fk1.SetTargetColumn("col1");

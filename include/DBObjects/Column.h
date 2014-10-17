@@ -2,6 +2,7 @@
 #define COLUMN_H
 
 #include <string>
+#include "Types.h"
 
 namespace Novo {
   namespace DBObjects {

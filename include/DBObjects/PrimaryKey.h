@@ -2,6 +2,7 @@
 #define PRIMARY_KEY_H
 
 #include <string>
+#include "Types.h"
 
 namespace Novo {
   namespace DBObjects {

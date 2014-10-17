@@ -5,6 +5,7 @@
 #include <vector>
 #include "DBObjects/Database.h"
 #include "DBObjects/Table.h"
+#include "Types.h"
 
 namespace Novo {
   enum class DatabaseType {

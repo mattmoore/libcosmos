@@ -2,6 +2,7 @@
 #define DATABASE_H
 
 #include "DBObjects/Table.h"
+#include "Types.h"
 
 namespace Novo {
   namespace DBObjects {

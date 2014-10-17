@@ -1,5 +1,5 @@
 CC				:= g++
-CFLAGS		:= -g -Wall -fPIC -std=c++11 -pthread
+CFLAGS		:= -g -Wall -fPIC -std=c++11
 
 SRC				:= src
 INC				:= include

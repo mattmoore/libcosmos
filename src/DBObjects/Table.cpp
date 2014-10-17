@@ -2,6 +2,7 @@
 
 namespace Novo {
   namespace DBObjects {
+
     Table::Table(std::string name) {
       this->name = name;
     }
@@ -51,7 +52,7 @@ namespace Novo {
       for (Novo::DBObjects::Column &column : this->columns) {
         sql += "  " + column.GetName() + " " + column.TypeToString(column.GetType());
         if (column.GetSize() > 0) {
-          sql += "(" + std::to_string(column.GetSize()) + ")";
+          sql += "(" + Novo::Utilities::ToString(column.GetSize()) + ")";
         }
         if (column.GetName() == this->pk) {
           sql += " PRIMARY KEY";
@@ -67,5 +68,6 @@ namespace Novo {
 
       return sql;
     }
+    
   }
 }

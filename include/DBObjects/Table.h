@@ -5,6 +5,8 @@
 #include <vector>
 #include "Column.h"
 #include "ForeignKey.h"
+#include "Types.h"
+#include "Utilities.h"
 
 namespace Novo {
   namespace DBObjects {

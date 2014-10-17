@@ -21,11 +21,10 @@ namespace Novo {
   public:
     Schema(Novo::DatabaseType dbType);
 
+    Novo::DBObjects::Database* GetDatabase(std::string name);
+
     void AddDatabase(Novo::DBObjects::Database database);
     void RemoveDatabase(std::string name);
-
-    void AddTable(Novo::DBObjects::Table table);
-    void RemoveTable(std::string name);
 
     std::string GetSQL();
 

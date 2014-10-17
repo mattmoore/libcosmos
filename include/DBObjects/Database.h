@@ -11,9 +11,14 @@ namespace Novo {
       std::vector<Novo::DBObjects::Table> tables;
     public:
       Database(std::string name);
+
       std::string GetName();
+
+      Novo::DBObjects::Table* GetTable(std::string name);
+
       void AddTable(Novo::DBObjects::Table table);
       void RemoveTable(std::string name);
+
       std::string GetSQL();
     };
   }

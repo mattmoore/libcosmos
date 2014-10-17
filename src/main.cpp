@@ -3,6 +3,7 @@
 int main(int argc, char *argv[]) {
 
   Novo::Schema schema(Novo::DatabaseType::MSSQL);
+  Novo::DBObjects::Database database1("database1");
 
   // Create table1
   Novo::DBObjects::Table table1("table1");
@@ -23,12 +24,21 @@ int main(int argc, char *argv[]) {
   fk1.SetTargetColumn("col1");
   table1.AddForeignKey(fk1);
 
-  // Add tables to schema
-  schema.AddTable(table1);
-  schema.AddTable(table2);
+  // Add tables to database
+  database1.AddTable(table1);
+  database1.AddTable(table2);
+
+  // Add databases to schema
+  schema.AddDatabase(database1);
 
   // Print SQL for schema
   std::cout << schema.GetSQL();
+
+  // Test getting database
+  // Novo::DBObjects::Database* db = schema.GetDatabase("database1");
+  // std::cout << db->GetSQL();
+  // Novo::DBObjects::Table* table_test = db->GetTable("table1");
+  // std::cout << table_test->GetSQL();
 
   return 0;
 }

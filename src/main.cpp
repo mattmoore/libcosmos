@@ -2,6 +2,9 @@
 
 int main(int argc, char *argv[]) {
 
+  Novo::Interpreter interpreter;
+  interpreter.ParseCommand(argc, argv);
+
   Novo::Schema schema(Novo::DatabaseType::MSSQL);
   Novo::DBObjects::Database database1("database1");
 

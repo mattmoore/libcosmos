@@ -1,16 +1,18 @@
 #ifndef INTERPRETER_H
 #define INTERPRETER_H
 
+#include <iostream>
 #include <string>
 #include "Types.h"
-#include <iostream>
+#include "Schema.h"
 
 namespace Novo {
   class Interpreter {
   public:
     Interpreter();
-    void ParseCommand(int argc, char *argv[]);
-    void ParseCommand(std::string command);
+    std::string ParseCommand(int argc, char *argv[]);
+    std::string ParseGet(std::string target);
+    Novo::Schema GetTestSchema();
   };
 }
 

@@ -9,21 +9,18 @@ namespace Novo {
   std::string Interpreter::ParseCommand(int argc, char *argv[]) {
     std::string response;
 
-    if (argc >= 2) {
-      // Get operations
+    for (int i = 1; i < argc; i++) {
       if (argv[1] == (std::string)"get") {
-        if (argc >= 3) {
-          // Return SQL from the schema object
-          response = this->ParseGet(argv[2]);
-          return response;
-        } else {
-          response = "You must specify a target to get.\n";
-          return response;
+        if (argv[2] == (std::string)"sql") {
+          response = this->GetTestSchema().GetSQL();
+        } else if (argv[2] == (std::string)"raw") {
+          SchemaFile schema_file;
+          schema_file.Load((std::string)argv[3]);
+          response = schema_file.GetFileContents();
         }
       }
     }
 
-    response = "Your command was not understood.\n";
     return response;
   }
 

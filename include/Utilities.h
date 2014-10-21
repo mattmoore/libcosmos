@@ -1,8 +1,10 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
-#include <string>
 #include <sstream>
+#include <string>
+#include <vector>
+
 #include "Types.h"
 
 namespace Novo {
@@ -16,6 +18,7 @@ namespace Novo {
       ss >> result;
       return result;
     }
+    std::vector<std::string> SplitString(std::string s, std::string delim);
   };
 }
 

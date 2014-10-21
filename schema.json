@@ -38,12 +38,14 @@
               {
                 "name": "test_column_1",
                 "sql-type": "varchar(500)",
-                "null": "yes"
+                "null": "yes",
+                "foreign-key": "table_1(id)"
               },
               {
                 "name": "test_column_2",
                 "sql-type": "varchar(200)",
-                "null": "no"
+                "null": "no",
+                "foreign-key": "table_1(test_column_1)"
               }
             ]
           }

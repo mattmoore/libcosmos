@@ -17,7 +17,6 @@ namespace Novo {
   private:
     Novo::DatabaseType databaseType;
     std::vector<Novo::DBObjects::Database> databases;
-    std::vector<Novo::DBObjects::Table> tables;
     
   public:
     Schema(Novo::DatabaseType dbType);

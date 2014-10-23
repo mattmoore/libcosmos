@@ -3,9 +3,9 @@
 
 #include <iostream>
 #include <string>
+
 #include "Types.h"
 #include "Schema.h"
-#include "SchemaFile.h"
 
 namespace Novo {
   class Interpreter {

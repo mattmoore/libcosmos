@@ -14,9 +14,9 @@ namespace Novo {
         if (argv[2] == (std::string)"sql") {
           response = this->GetTestSchema().GetSQL();
         } else if (argv[2] == (std::string)"raw") {
-          SchemaFile schema_file;
-          schema_file.Load((std::string)argv[3]);
-          response = schema_file.GetFileContents();
+          Schema schema;
+          schema.Load((std::string)argv[3]);
+          response = schema.GetSchemaFileContent();
         }
       }
     }

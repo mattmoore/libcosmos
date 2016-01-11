@@ -1,4 +1,4 @@
-CC        := g++
+CC        := clang++
 CFLAGS    := -g -Wall -fPIC -std=c++11
 
 SRC       := src

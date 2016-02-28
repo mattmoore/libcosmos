@@ -10,10 +10,10 @@ namespace Novo {
     std::string response;
 
     for (int i = 1; i < argc; i++) {
-      if (argv[1] == (std::string)"get") {
-        if (argv[2] == (std::string)"sql") {
+      if (strcmp(argv[1], "get") == 0) {
+        if (strcmp(argv[2], "sql") == 0) {
           response = this->GetTestSchema().GetSQL();
-        } else if (argv[2] == (std::string)"raw") {
+        } else if (strcmp(argv[2], "raw") == 0) {
           Schema schema;
           schema.Load((std::string)argv[3]);
           response = schema.GetSchemaFileContent();

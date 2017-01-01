@@ -1,5 +1,5 @@
-CC        := clang++
-CFLAGS    := -g -Wall -fPIC -std=c++11
+CC        := g++
+CFLAGS    := -g -Wall -fPIC -std=c++14
 
 SRC       := src
 INC       := include

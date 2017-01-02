@@ -1,6 +1,6 @@
 #include "DBObjects/Database.h"
 
-namespace Novo {
+namespace Cosmos {
   namespace DBObjects {
 
     Database::Database(std::string name) {
@@ -11,9 +11,9 @@ namespace Novo {
       return this->name;
     }
 
-    Novo::DBObjects::Table* Database::GetTable(std::string name) {
-      Novo::DBObjects::Table* table_pointer = NULL;
-      for (Novo::DBObjects::Table& table : this->tables) {
+    Cosmos::DBObjects::Table* Database::GetTable(std::string name) {
+      Cosmos::DBObjects::Table* table_pointer = NULL;
+      for (Cosmos::DBObjects::Table& table : this->tables) {
         if (table.GetName() == name) {
           table_pointer = &table;
         }
@@ -21,7 +21,7 @@ namespace Novo {
       return table_pointer;
     }
 
-    void Database::AddTable(Novo::DBObjects::Table table) {
+    void Database::AddTable(Cosmos::DBObjects::Table table) {
       this->tables.push_back(table);
     }
 
@@ -37,10 +37,10 @@ namespace Novo {
       std::string sql;
       std::string fkey_sql;
 
-      for (Novo::DBObjects::Table &table : this->tables) {
+      for (Cosmos::DBObjects::Table &table : this->tables) {
         sql += table.GetSQL();
 
-        for (Novo::DBObjects::ForeignKey f_key : table.GetForeignKeys()) {
+        for (Cosmos::DBObjects::ForeignKey f_key : table.GetForeignKeys()) {
           fkey_sql += "ALTER TABLE " + table.GetName();
           fkey_sql += " ADD CONSTRAINT " + f_key.GetName();
           fkey_sql += " FOREIGN KEY (" + f_key.GetSourceColumn() + ")";
@@ -51,7 +51,7 @@ namespace Novo {
       }
 
       sql += fkey_sql;
-      
+
       return sql;
     }
 

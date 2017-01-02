@@ -1,6 +1,6 @@
 #include "DBObjects/Table.h"
 
-namespace Novo {
+namespace Cosmos {
   namespace DBObjects {
 
     Table::Table(std::string name) {
@@ -15,7 +15,7 @@ namespace Novo {
       this->pk = name;
     }
 
-    void Table::AddColumn(Novo::DBObjects::Column column) {
+    void Table::AddColumn(Cosmos::DBObjects::Column column) {
       this->columns.push_back(column);
     }
 
@@ -27,7 +27,7 @@ namespace Novo {
       }
     }
 
-    void Table::AddForeignKey(Novo::DBObjects::ForeignKey key) {
+    void Table::AddForeignKey(Cosmos::DBObjects::ForeignKey key) {
       this->f_keys.push_back(key);
     }
 
@@ -39,7 +39,7 @@ namespace Novo {
       }
     }
 
-    std::vector<Novo::DBObjects::ForeignKey> Table::GetForeignKeys() {
+    std::vector<Cosmos::DBObjects::ForeignKey> Table::GetForeignKeys() {
       return this->f_keys;
     }
 
@@ -49,10 +49,10 @@ namespace Novo {
       sql = "CREATE TABLE " + this->name + " (" + "\n";
 
       uint col_index = 0;
-      for (Novo::DBObjects::Column &column : this->columns) {
+      for (Cosmos::DBObjects::Column &column : this->columns) {
         sql += "  " + column.GetName() + " " + column.TypeToString(column.GetType());
         if (column.GetSize() > 0) {
-          sql += "(" + Novo::Utilities::ToString(column.GetSize()) + ")";
+          sql += "(" + Cosmos::Utilities::ToString(column.GetSize()) + ")";
         }
         if (column.GetName() == this->pk) {
           sql += " PRIMARY KEY";
@@ -68,6 +68,6 @@ namespace Novo {
 
       return sql;
     }
-    
+
   }
 }

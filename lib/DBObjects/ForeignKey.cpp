@@ -1,6 +1,6 @@
 #include "DBObjects/ForeignKey.h"
 
-namespace Novo {
+namespace Cosmos {
   namespace DBObjects {
 
     ForeignKey::ForeignKey(std::string name) {

@@ -1,5 +1,4 @@
-#ifndef UTILITIES_H
-#define UTILITIES_H
+#pragma once
 
 #include <sstream>
 #include <string>
@@ -7,7 +6,7 @@
 
 #include "Types.h"
 
-namespace Novo {
+namespace Cosmos {
   class Utilities {
   public:
     template <typename T>
@@ -21,5 +20,3 @@ namespace Novo {
     std::vector<std::string> SplitString(std::string s, std::string delim);
   };
 }
-
-#endif

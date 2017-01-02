@@ -1,5 +1,4 @@
-#ifndef DB_H
-#define DB_H
+#pragma once
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,12 +8,9 @@
 #include <unistd.h>
 #include <libgen.h>
 
-namespace Novo {
+namespace Cosmos {
   class DB {
-  private:
   public:
     DB();
   };
 }
-
-#endif

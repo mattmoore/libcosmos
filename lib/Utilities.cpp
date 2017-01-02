@@ -1,6 +1,6 @@
 #include "Utilities.h"
 
-namespace Novo {
+namespace Cosmos {
   std::vector<std::string> Utilities::SplitString(std::string s, std::string delim) {
     std::vector<std::string> result;
     auto start = 0U;

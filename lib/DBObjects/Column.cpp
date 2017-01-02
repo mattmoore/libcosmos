@@ -1,15 +1,15 @@
 #include "DBObjects/Column.h"
 
-namespace Novo {
+namespace Cosmos {
   namespace DBObjects {
 
-    Column::Column(std::string name, Novo::DBObjects::ColumnType type) {
+    Column::Column(std::string name, Cosmos::DBObjects::ColumnType type) {
       this->name = name;
       this->type = type;
       this->size = 0;
     }
 
-    Column::Column(std::string name, Novo::DBObjects::ColumnType type, uint size) {
+    Column::Column(std::string name, Cosmos::DBObjects::ColumnType type, uint size) {
       this->name = name;
       this->type = type;
       this->size = size;
@@ -19,7 +19,7 @@ namespace Novo {
       return this->name;
     }
 
-    Novo::DBObjects::ColumnType Column::GetType() {
+    Cosmos::DBObjects::ColumnType Column::GetType() {
       return this->type;
     }
 
@@ -27,11 +27,11 @@ namespace Novo {
       return this->size;
     }
 
-    std::string Column::TypeToString(Novo::DBObjects::ColumnType type) {
+    std::string Column::TypeToString(Cosmos::DBObjects::ColumnType type) {
       switch (type) {
-        case Novo::DBObjects::ColumnType::INT:
+        case Cosmos::DBObjects::ColumnType::INT:
           return "INT";
-        case Novo::DBObjects::ColumnType::VARCHAR:
+        case Cosmos::DBObjects::ColumnType::VARCHAR:
           return "VARCHAR";
         default:
           return NULL;
@@ -43,6 +43,6 @@ namespace Novo {
       std::string sql;
       return sql;
     }
-  
+
   }
 }

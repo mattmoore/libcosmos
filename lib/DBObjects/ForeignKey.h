@@ -1,10 +1,9 @@
-#ifndef FOREIGN_KEY_H
-#define FOREIGN_KEY_H
+#pragma once
 
 #include <string>
 #include "Types.h"
 
-namespace Novo {
+namespace Cosmos {
   namespace DBObjects {
     class ForeignKey {
     private:
@@ -28,5 +27,3 @@ namespace Novo {
     };
   }
 }
-
-#endif

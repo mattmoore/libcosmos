@@ -1,6 +1,6 @@
 #include "Interpreter.h"
 
-namespace Novo {
+namespace Cosmos {
 
   Interpreter::Interpreter() {
 
@@ -14,9 +14,9 @@ namespace Novo {
         if (strcmp(argv[2], "sql") == 0) {
           response = this->GetTestSchema().GetSQL();
         } else if (strcmp(argv[2], "raw") == 0) {
-          Schema schema;
-          schema.Load((std::string)argv[3]);
-          response = schema.GetSchemaFileContent();
+          Connection connection;
+          connection.Load((std::string)argv[3]);
+          response = connection.GetCosmosFileContent();
         }
       }
     }
@@ -25,34 +25,34 @@ namespace Novo {
   }
 
   std::string Interpreter::ParseGet(std::string target) {
-    Novo::Schema schema = this->GetTestSchema();
+    Cosmos::Connection connection = this->GetTestSchema();
     std::string response;
     if (target == "sql") {
-      response = schema.GetSQL();
+      response = connection.GetSQL();
       return response;
     }
     response = "Target to get command not understood. Appropriate targets are 'sql'.\n";
     return response;
   }
 
-  Novo::Schema Interpreter::GetTestSchema() {
-    Novo::Schema schema(Novo::DatabaseType::MSSQL);
-    Novo::DBObjects::Database database1("database1");
+  Cosmos::Connection Interpreter::GetTestSchema() {
+    Cosmos::Connection connection(Cosmos::DatabaseType::MSSQL);
+    Cosmos::DBObjects::Database database1("database1");
 
     // Create table1
-    Novo::DBObjects::Table table1("table1");
-    table1.AddColumn(Novo::DBObjects::Column("col1", Novo::DBObjects::ColumnType::INT));
+    Cosmos::DBObjects::Table table1("table1");
+    table1.AddColumn(Cosmos::DBObjects::Column("col1", Cosmos::DBObjects::ColumnType::INT));
     table1.SetPK("col1"); // set primary key to col1
-    table1.AddColumn(Novo::DBObjects::Column("col2", Novo::DBObjects::ColumnType::INT));
-    table1.AddColumn(Novo::DBObjects::Column("col3", Novo::DBObjects::ColumnType::VARCHAR, 255));
+    table1.AddColumn(Cosmos::DBObjects::Column("col2", Cosmos::DBObjects::ColumnType::INT));
+    table1.AddColumn(Cosmos::DBObjects::Column("col3", Cosmos::DBObjects::ColumnType::VARCHAR, 255));
 
     // Create table2
-    Novo::DBObjects::Table table2("table2");
-    table2.AddColumn(Novo::DBObjects::Column("col1", Novo::DBObjects::ColumnType::INT));
+    Cosmos::DBObjects::Table table2("table2");
+    table2.AddColumn(Cosmos::DBObjects::Column("col1", Cosmos::DBObjects::ColumnType::INT));
     table2.SetPK("col1"); // set primary key to col1
 
     // Assign foreign key mapping table1(col2) -> table2(col1)
-    Novo::DBObjects::ForeignKey fk1("fk__col2__table2__col1");
+    Cosmos::DBObjects::ForeignKey fk1("fk__col2__table2__col1");
     fk1.SetSourceColumn("col2");
     fk1.SetTargetTable("table2");
     fk1.SetTargetColumn("col1");
@@ -63,9 +63,9 @@ namespace Novo {
     database1.AddTable(table2);
 
     // Add databases to schema
-    schema.AddDatabase(database1);
+    connection.AddDatabase(database1);
 
-    return schema;
+    return connection;
   }
 
 }

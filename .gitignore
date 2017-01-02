@@ -1,5 +1,4 @@
 *.swp
 *.vim
-build
-lib
 bin
+.DS_Store

@@ -1,10 +1,9 @@
-#ifndef PRIMARY_KEY_H
-#define PRIMARY_KEY_H
+#pragma once
 
 #include <string>
 #include "Types.h"
 
-namespace Novo {
+namespace Cosmos {
   namespace DBObjects {
     class PrimaryKey {
     private:
@@ -15,5 +14,3 @@ namespace Novo {
     };
   }
 }
-
-#endif

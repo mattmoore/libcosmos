@@ -1,6 +1,6 @@
 #include "DB.h"
 
-namespace Novo {
+namespace Cosmos {
   DB::DB() {
   }
 }

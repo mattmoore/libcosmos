@@ -1,20 +1,17 @@
-#ifndef INTERPRETER_H
-#define INTERPRETER_H
+#pragma once
 
 #include <iostream>
 #include <string>
 
 #include "Types.h"
-#include "Schema.h"
+#include "Connection.h"
 
-namespace Novo {
+namespace Cosmos {
   class Interpreter {
   public:
     Interpreter();
     std::string ParseCommand(int argc, char *argv[]);
     std::string ParseGet(std::string target);
-    Novo::Schema GetTestSchema();
+    Cosmos::Connection GetTestSchema();
   };
 }
-
-#endif

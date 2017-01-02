@@ -1,5 +1,4 @@
-#ifndef TABLE_H
-#define TABLE_H
+#pragma once
 
 #include <string>
 #include <vector>
@@ -8,16 +7,16 @@
 #include "Types.h"
 #include "Utilities.h"
 
-namespace Novo {
+namespace Cosmos {
   namespace DBObjects {
 
     class Table {
 
     private:
       std::string name;
-      std::vector<Novo::DBObjects::Column> columns;
+      std::vector<Cosmos::DBObjects::Column> columns;
       std::string pk;
-      std::vector<Novo::DBObjects::ForeignKey> f_keys;
+      std::vector<Cosmos::DBObjects::ForeignKey> f_keys;
 
     public:
       Table(std::string name);
@@ -25,19 +24,16 @@ namespace Novo {
 
       void SetPK(std::string name);
 
-      void AddColumn(Novo::DBObjects::Column);
+      void AddColumn(Cosmos::DBObjects::Column);
       void RemoveColumn(std::string name);
 
-      void AddForeignKey(Novo::DBObjects::ForeignKey);
+      void AddForeignKey(Cosmos::DBObjects::ForeignKey);
       void RemoveForeignKey(std::string name);
 
-      std::vector<Novo::DBObjects::ForeignKey> GetForeignKeys();
-      
+      std::vector<Cosmos::DBObjects::ForeignKey> GetForeignKeys();
+
       std::string GetSQL();
     };
 
   }
 }
-
-#endif
-

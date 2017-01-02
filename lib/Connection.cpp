@@ -5,19 +5,16 @@ namespace Cosmos {
 
   }
 
-  Connection::Connection(Cosmos::DatabaseType dbType) {
-    this->databaseType = dbType;
+  bool Connection::connect(std::string connection_string) {
+    this->database_type = Cosmos::DatabaseType::POSTGRESQL;
+    PGconn* pg_conn = NULL;
+    pg_conn = PQconnectdb(connection_string.c_str());
+    PQfinish(pg_conn);
+    pg_conn = NULL;
+    return true;
   }
 
-  void Connection::SetDatabaseType(Cosmos::DatabaseType dbType) {
-    this->databaseType = dbType;
-  }
-
-  Cosmos::DatabaseType Connection::GetDatabaseType() {
-    return this->databaseType;
-  }
-
-  Cosmos::DBObjects::Database* Connection::GetDatabase(std::string name) {
+  Cosmos::DBObjects::Database* Connection::get_database(std::string name) {
     Cosmos::DBObjects::Database* db_pointer;
     for (Cosmos::DBObjects::Database& database : this->databases) {
       if (database.GetName() == name) {
@@ -27,11 +24,11 @@ namespace Cosmos {
     return db_pointer;
   }
 
-  void Connection::AddDatabase(Cosmos::DBObjects::Database database) {
+  void Connection::add_database(Cosmos::DBObjects::Database database) {
     this->databases.push_back(database);
   }
 
-  void Connection::RemoveDatabase(std::string name) {
+  void Connection::remove_database(std::string name) {
     for (uint i = 0; i < this->databases.size(); ++i) {
       if (this->databases[i].GetName() == name) {
         this->databases.erase(this->databases.begin() + i);
@@ -39,7 +36,7 @@ namespace Cosmos {
     }
   }
 
-  std::string Connection::GetSQL() {
+  std::string Connection::get_sql() {
     std::string sql;
     for (Cosmos::DBObjects::Database &database : this->databases) {
       sql += database.GetSQL();
@@ -47,11 +44,11 @@ namespace Cosmos {
     return sql;
   }
 
-  std::string Connection::GetCosmosFileContent() {
+  std::string Connection::get_cosmos_file_content() {
     return this->cosmos_file_content;
   }
 
-  void Connection::Load(std::string filename) {
+  void Connection::load(std::string filename) {
     std::fstream file(filename, std::ios::in);
     if (file.is_open()) {
       this->cosmos_file_content.clear();

@@ -8,6 +8,8 @@
 #include "DBObjects/Table.h"
 #include "Types.h"
 
+#include <libpq-fe.h>
+
 namespace Cosmos {
   enum class DatabaseType {
     POSTGRESQL,
@@ -17,25 +19,18 @@ namespace Cosmos {
   class Connection {
   public:
     Connection();
-    Connection(Cosmos::DatabaseType dbType);
-
-    void SetDatabaseType(Cosmos::DatabaseType dbType);
-    Cosmos::DatabaseType GetDatabaseType();
-
-    Cosmos::DBObjects::Database* GetDatabase(std::string name);
-
-    void AddDatabase(Cosmos::DBObjects::Database database);
-    void RemoveDatabase(std::string name);
-
-    std::string GetSQL();
-    std::string GetCosmosFileContent();
-    void Load(std::string filename);
-
+    bool connect(std::string);
+    Cosmos::DBObjects::Database* get_database(std::string);
+    void add_database(Cosmos::DBObjects::Database);
+    void remove_database(std::string);
+    std::string get_sql();
+    std::string get_cosmos_file_content();
+    void load(std::string);
     enum class DatabaseType;
     enum class DataType;
 
   private:
-    Cosmos::DatabaseType databaseType;
+    Cosmos::DatabaseType database_type;
     std::vector<Cosmos::DBObjects::Database> databases;
     std::string cosmos_file_content;
   };

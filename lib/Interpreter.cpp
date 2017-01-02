@@ -12,11 +12,11 @@ namespace Cosmos {
     for (int i = 1; i < argc; i++) {
       if (strcmp(argv[1], "get") == 0) {
         if (strcmp(argv[2], "sql") == 0) {
-          response = this->GetTestSchema().GetSQL();
+          response = this->GetTestSchema().get_sql();
         } else if (strcmp(argv[2], "raw") == 0) {
           Connection connection;
-          connection.Load((std::string)argv[3]);
-          response = connection.GetCosmosFileContent();
+          connection.load((std::string)argv[3]);
+          response = connection.get_cosmos_file_content();
         }
       }
     }
@@ -28,7 +28,7 @@ namespace Cosmos {
     Cosmos::Connection connection = this->GetTestSchema();
     std::string response;
     if (target == "sql") {
-      response = connection.GetSQL();
+      response = connection.get_sql();
       return response;
     }
     response = "Target to get command not understood. Appropriate targets are 'sql'.\n";
@@ -36,7 +36,7 @@ namespace Cosmos {
   }
 
   Cosmos::Connection Interpreter::GetTestSchema() {
-    Cosmos::Connection connection(Cosmos::DatabaseType::MSSQL);
+    Cosmos::Connection connection;
     Cosmos::DBObjects::Database database1("database1");
 
     // Create table1
@@ -63,7 +63,7 @@ namespace Cosmos {
     database1.AddTable(table2);
 
     // Add databases to schema
-    connection.AddDatabase(database1);
+    connection.add_database(database1);
 
     return connection;
   }

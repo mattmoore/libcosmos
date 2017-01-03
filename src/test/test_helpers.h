@@ -10,8 +10,8 @@ void log(std::string message) {
 
 void check(bool condition, std::string message) {
   if (condition) {
-    std::cout << message << ": pass" << std::endl;
+    std::cout << "\t" << message << ": pass" << std::endl;
     return;
   }
-  std::cout << message << ": fail" << std::endl;
+  std::cout << "\t" << message << ": fail" << std::endl;
 }

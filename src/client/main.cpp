@@ -5,5 +5,4 @@ int main(int argc, char *argv[]) {
   std::cout << interpreter.ParseCommand(argc, argv);
   Cosmos::Connection conn;
   conn.connect("postgresql://localhost");
-  return 0;
 }

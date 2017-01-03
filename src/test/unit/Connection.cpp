@@ -14,6 +14,9 @@ void test_psql_server_time() {
   log("query server time");
   Cosmos::Connection conn;
   conn.connect("postgresql://localhost");
+  std::string server_time = conn.server_time();
+  conn.disconnect();
+  check(server_time.find("2017") != std::string::npos, "server returns time: " + server_time);
 }
 
 int main() {

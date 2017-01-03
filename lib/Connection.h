@@ -21,6 +21,7 @@ namespace Cosmos {
     Connection();
     bool connect(std::string);
     void disconnect();
+    bool is_connected();
     Cosmos::DBObjects::Database* get_database(std::string);
     void add_database(Cosmos::DBObjects::Database);
     void remove_database(std::string);

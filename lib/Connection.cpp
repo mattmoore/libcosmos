@@ -26,6 +26,10 @@ namespace Cosmos {
     return db_pointer;
   }
 
+  bool Connection::is_connected() {
+    return PQstatus(this->pg_conn) == CONNECTION_OK;
+  }
+
   void Connection::add_database(Cosmos::DBObjects::Database database) {
     this->databases.push_back(database);
   }

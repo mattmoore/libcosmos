@@ -1,5 +1,5 @@
 cc             := g++
-cflags         := -std=c++14 -Wall -fPIC
+cflags         := -std=c++14 -Wall -fpic
 cflags_lib     := $(cflags) -shared
 
 lib_headers    := lib/*.h lib/DBObjects/*.h

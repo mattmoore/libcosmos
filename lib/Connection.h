@@ -20,6 +20,7 @@ namespace Cosmos {
   public:
     Connection();
     bool connect(std::string);
+    void disconnect();
     Cosmos::DBObjects::Database* get_database(std::string);
     void add_database(Cosmos::DBObjects::Database);
     void remove_database(std::string);
@@ -30,6 +31,7 @@ namespace Cosmos {
     enum class DataType;
 
   private:
+    PGconn* pg_conn;
     Cosmos::DatabaseType database_type;
     std::vector<Cosmos::DBObjects::Database> databases;
     std::string cosmos_file_content;

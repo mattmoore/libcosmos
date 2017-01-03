@@ -7,11 +7,13 @@ namespace Cosmos {
 
   bool Connection::connect(std::string connection_string) {
     this->database_type = Cosmos::DatabaseType::POSTGRESQL;
-    PGconn* pg_conn = NULL;
-    pg_conn = PQconnectdb(connection_string.c_str());
-    PQfinish(pg_conn);
-    pg_conn = NULL;
+    this->pg_conn = PQconnectdb(connection_string.c_str());
     return true;
+  }
+
+  void Connection::disconnect() {
+    PQfinish(this->pg_conn);
+    this->pg_conn = NULL;
   }
 
   Cosmos::DBObjects::Database* Connection::get_database(std::string name) {

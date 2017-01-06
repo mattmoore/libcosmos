@@ -1,5 +1,5 @@
 *.swp
 *.vim
-bin
-lib
+/bin
+/lib
 .DS_Store

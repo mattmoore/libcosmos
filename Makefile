@@ -17,7 +17,7 @@ client_links   := -Llib -lcosmos
 test_src       := src/test/unit/*.cpp
 test_inc       := $(lib_inc)
 test_target    := -o test/bin/run
-test_links     := -L/Users/mpm/source/libcosmos/lib -lcosmos
+test_links     := -Llib -lcosmos
 
 client: libcosmos
 	mkdir -p bin
@@ -30,7 +30,7 @@ libcosmos:
 test: libcosmos
 	mkdir -p test/bin
 	$(cc) $(cflags) $(test_target) $(test_inc) $(test_links) $(test_src)
-	test/bin/run
+	LD_LIBRARY_PATH=lib test/bin/run
 
 clean:
 	if [ -d bin ]; then rm -rf bin; fi
